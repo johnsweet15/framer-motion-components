@@ -8,12 +8,12 @@ interface ModalProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   handleClose: () => void;
 }
 
-const Modal = ({ text, handleClose }: ModalProps) => {
+const Modal = ({ text, handleClose, children }: ModalProps) => {
   return (
     <Backdrop onClick={handleClose}>
       <motion.div onClick={(e) => e.stopPropagation()} {...modalConfig}>
         <p>{text}</p>
-        <Button onClick={handleClose}>Close</Button>
+        {children}
       </motion.div>
     </Backdrop>
   );

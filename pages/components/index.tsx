@@ -12,16 +12,17 @@ const Components: NextPage = () => {
 
   return (
     <div style={{ padding: 40 }}>
-      <Button
-        mode='secondary'
-        onClick={() => {
-          openModal();
-        }}
-      >
+      <Button mode='primary' onClick={() => openModal()}>
         Click Me
       </Button>
       <AnimatePresence initial={false} exitBeforeEnter={true}>
-        {modalOpen && <Modal text='hello' handleClose={closeModal} />}
+        {modalOpen && (
+          <Modal text='hello' handleClose={closeModal}>
+            <Button mode='secondary' onClick={() => closeModal()}>
+              Close
+            </Button>
+          </Modal>
+        )}
       </AnimatePresence>
     </div>
   );

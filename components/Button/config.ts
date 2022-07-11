@@ -14,11 +14,11 @@ const commonStyle: CSSProperties = {
 export const buttonConfig: ButtonConfig = {
   primary: {
     ...commonStyle,
-    background: `linear-gradient(15deg, ${colors.magenta}, ${colors.purple})`,
+    background: `linear-gradient(90deg, ${colors.purple}, ${colors.blue})`,
   },
   secondary: {
     ...commonStyle,
-    background: `linear-gradient(15deg, ${colors.blue}, ${colors.purple})`,
+    background: `linear-gradient(90deg, ${colors.magenta}, ${colors.purple})`,
   },
   whileHover: {
     cursor: 'pointer',

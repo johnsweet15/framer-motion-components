@@ -6,7 +6,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const Button = ({ children, onClick, mode }: ButtonProps) => {
-  console.log(buttonConfig[mode || 'primary']);
   return (
     <motion.button
       style={buttonConfig[mode || 'primary']}

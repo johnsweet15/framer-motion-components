@@ -6,5 +6,5 @@ export const colors = {
   darkGray: '#090912',
   magenta: '#9e1263',
   purple: '#9a00c3',
-  white: '#fffff',
+  white: '#ffffff',
 };
