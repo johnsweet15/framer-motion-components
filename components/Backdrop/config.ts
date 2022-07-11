@@ -1,3 +1,4 @@
+import { colors } from '../../theme';
 import { DivConfig } from '../interfaces';
 
 export const backdropConfig: DivConfig = {
@@ -7,7 +8,7 @@ export const backdropConfig: DivConfig = {
     left: 0,
     height: '100%',
     width: '100%',
-    background: '#000000e1',
+    background: `${colors.black}e1`,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',

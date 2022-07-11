@@ -5,9 +5,14 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: 'primary' | 'secondary';
 }
 
-const Button = ({ children, onClick }: ButtonProps) => {
+const Button = ({ children, onClick, mode }: ButtonProps) => {
+  console.log(buttonConfig[mode || 'primary']);
   return (
-    <motion.button {...buttonConfig} onClick={onClick}>
+    <motion.button
+      style={buttonConfig[mode || 'primary']}
+      {...buttonConfig}
+      onClick={onClick}
+    >
       {children}
     </motion.button>
   );

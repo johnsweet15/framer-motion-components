@@ -1,15 +1,24 @@
+import { CSSProperties } from 'react';
 import { colors, fontFamily } from '../../theme';
 import { ButtonConfig } from '../interfaces';
 
+const commonStyle: CSSProperties = {
+  fontSize: 18,
+  border: 'none',
+  padding: '10px 20px',
+  borderRadius: 4,
+  fontFamily: fontFamily,
+  color: colors.white,
+};
+
 export const buttonConfig: ButtonConfig = {
-  style: {
+  primary: {
+    ...commonStyle,
     background: `linear-gradient(15deg, ${colors.magenta}, ${colors.purple})`,
-    fontSize: 18,
-    border: 'none',
-    padding: '10px 20px',
-    borderRadius: 4,
-    fontFamily: fontFamily,
-    color: colors.white,
+  },
+  secondary: {
+    ...commonStyle,
+    background: `linear-gradient(15deg, ${colors.blue}, ${colors.purple})`,
   },
   whileHover: {
     cursor: 'pointer',

@@ -13,9 +13,9 @@ const Components: NextPage = () => {
   return (
     <div style={{ padding: 40 }}>
       <Button
+        mode='secondary'
         onClick={() => {
           openModal();
-          console.log(modalOpen);
         }}
       >
         Click Me
