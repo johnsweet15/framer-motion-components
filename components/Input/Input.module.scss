@@ -9,6 +9,7 @@
   color: white;
   display: block;
   position: absolute;
+  font-family: $fontFamily;
 
   &:focus {
     outline: none;
@@ -16,32 +17,18 @@
   }
 }
 
-// .input::before {
-//   pointer-events: none;
-//   position: absolute;
-//   border: 1px solid #000;
-// }
-
 .input ~ .span {
   z-index: 1;
   position: relative;
   top: 14px;
   left: 16px;
   cursor: text;
-  // transition: top 0.8s;
 }
-
-// .input:focus ~ .span {
-//   top: -26px !important;
-//   padding: 8px;
-//   left: 0px;
-//   // background-color: $backgroundColorPrimary;
-// }
 
 .label {
   display: block;
-  // z-index: -1;
   box-sizing: border-box;
+  font-size: 18px;
 }
 
 .container {

@@ -1,5 +1,5 @@
 import { motion, Variants } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './Input.module.scss';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -9,7 +9,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 const FOCUSED_X_OFFSET = '0px';
 const BLURRED_X_OFFSET = '16px';
 const FOCUSED_Y_OFFSET = '-26px';
-const BLURRED_Y_OFFSET = '16px';
+const BLURRED_Y_OFFSET = '14px';
 
 const Input = ({ label }: InputProps) => {
   const [focused, setFocused] = useState<boolean>(false);
@@ -28,6 +28,7 @@ const Input = ({ label }: InputProps) => {
         : inputValue.length > 0
         ? FOCUSED_X_OFFSET
         : BLURRED_X_OFFSET,
+      fontSize: focused || inputValue.length > 0 ? '16px' : '18px',
     }),
     initial: {
       opacity: 0.8,
@@ -36,14 +37,14 @@ const Input = ({ label }: InputProps) => {
 
   return (
     <div className={`${styles.container}`}>
-      <motion.label id={label} className={styles.label}>
-        <motion.input
+      <div id={label} className={styles.label}>
+        <input
           aria-labelledby={label}
           className={`${styles.input}`}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           onChange={(e) => setInputValue(e.target.value)}
-        ></motion.input>
+        ></input>
         <motion.span
           className={styles.span}
           variants={variants}
@@ -52,7 +53,7 @@ const Input = ({ label }: InputProps) => {
         >
           {label}
         </motion.span>
-      </motion.label>
+      </div>
     </div>
   );
 };

@@ -13,11 +13,13 @@ const Components: NextPage = () => {
 
   return (
     <div style={{ padding: 40 }}>
+      <Input label='First Name' />
+      <div style={{ margin: 80 }}></div>
+      <Input label='Last Name' />
+      <div style={{ margin: 80 }}></div>
       <Button mode='primary' onClick={() => openModal()}>
         Click Me
       </Button>
-      <div style={{ padding: 20 }}></div>
-      <Input label='First Name' />
       <AnimatePresence initial={false} exitBeforeEnter={true}>
         {modalOpen && (
           <Modal text='hello' handleClose={closeModal}>
