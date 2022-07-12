@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Button from '../../components/Button';
 import Modal from '../../components/Modal';
 import Input from '../../components/Input';
+import Head from 'next/head';
 
 const Components: NextPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -13,6 +14,9 @@ const Components: NextPage = () => {
 
   return (
     <div style={{ padding: 40 }}>
+      <Head>
+        <title>Components</title>
+      </Head>
       <Input label='First Name' />
       <div style={{ margin: 80 }}></div>
       <Input label='Last Name' />

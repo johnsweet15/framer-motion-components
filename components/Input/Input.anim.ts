@@ -5,7 +5,7 @@ const BLURRED_X_OFFSET = '16px';
 const FOCUSED_Y_OFFSET = '-26px';
 const BLURRED_Y_OFFSET = '14px';
 
-export const animate = (focused: boolean, inputValue: string): Variants => {
+export const getVariants = (focused: boolean, inputValue: string): Variants => {
   return {
     animate: () => ({
       opacity: focused ? 1 : 0.7,
