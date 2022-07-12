@@ -9,8 +9,8 @@ const Button = ({ children, onClick, mode }: ButtonProps) => {
   return (
     <motion.button
       style={buttonConfig[mode || 'primary']}
-      {...buttonConfig}
       onClick={onClick}
+      {...buttonConfig}
     >
       {children}
     </motion.button>
