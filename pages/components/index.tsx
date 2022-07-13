@@ -18,9 +18,8 @@ const Components: NextPage = () => {
         <title>Components</title>
       </Head>
       <Input label='First Name' />
-      <div style={{ margin: 80 }}></div>
       <Input label='Last Name' />
-      <div style={{ margin: 80 }}></div>
+      <Input label='Email Address' />
       <Button mode='primary' onClick={() => openModal()}>
         Click Me
       </Button>

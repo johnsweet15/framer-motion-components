@@ -4,12 +4,10 @@
   padding: 14px;
   font-size: 18px;
   background-color: $darkGray;
-  // border: 1px solid $purple;
   border: none;
   border-radius: 4px;
   color: white;
   display: block;
-  position: absolute;
   font-family: $fontFamily;
 
   &:focus {
@@ -19,8 +17,7 @@
 }
 
 .input ~ .span {
-  z-index: 1;
-  position: relative;
+  position: absolute;
   top: 14px;
   left: 16px;
   cursor: text;
@@ -28,5 +25,7 @@
 }
 
 .container {
-  display: inline-block;
+  display: block;
+  position: relative;
+  margin: 40px 0;
 }

@@ -13,6 +13,7 @@ export const backdropConfig: DivConfig = {
     alignItems: 'center',
     justifyContent: 'center',
     overflowY: 'hidden',
+    zIndex: 100,
   },
   initial: { opacity: 0 },
   animate: { opacity: 1 },
