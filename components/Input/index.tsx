@@ -1,63 +1,78 @@
 import { motion } from 'framer-motion';
-import { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styles from './Input.module.scss';
 import { getVariants } from './Input.anim';
+import { REQUIRED_ERROR_MESSAGE } from '../../config/constants';
+
+interface Validation {
+  errorMessage: string;
+  pattern: RegExp;
+}
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  validations?: Validation[];
+  required?: boolean;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ label }: InputProps) => {
+const Input = ({ label, validations, required, onChange }: InputProps) => {
   const [focused, setFocused] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>('');
-  const [error, setError] = useState<string | null>(null);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputValue(e.target.value);
-    if (e.target.value.length === 0) {
-      setError('This is a required field');
-    } else {
-      setError(null);
+    if (validations && validations.length > 0) {
+      validate(e.target.value);
+    }
+    if (required && e.target.value.length === 0) {
+      setErrorMessage(REQUIRED_ERROR_MESSAGE);
+    }
+    if (onChange) {
+      onChange(e);
     }
   };
 
-  const handleFocus = (isFocused: boolean) => {
-    // if focus
-    // if (isFocused) {
-    //   setError(null);
-    // }
-    // // if blur
-    // else if (!isFocused && inputValue.length === 0) {
-    //   setError('This is a required field');
-    // }
+  const handleFocus = (isFocused: boolean): void => {
     setFocused(isFocused);
   };
 
+  const validate = (input: string): void => {
+    validations?.forEach(({ pattern, errorMessage }) => {
+      // if input value fails validation
+      if (!pattern.test(input)) {
+        setErrorMessage(errorMessage);
+      } else {
+        setErrorMessage(null);
+      }
+    });
+  };
+
   return (
-    // <div style={{ display: 'block', position: 'relative' }}>
     <div className={`${styles.container}`}>
       <input
         aria-label={label}
-        className={`${styles.input}`}
+        className={`${styles.input} ${errorMessage && styles.errorBorder}`}
         onFocus={() => handleFocus(true)}
         onBlur={() => handleFocus(false)}
         onChange={handleChange}
-        style={{ border: error ? '1px solid red' : 'none' }}
       />
       <motion.p
         className={styles.span}
         variants={getVariants(focused, inputValue)}
         initial='initial'
         animate='animate'
-        style={{ margin: 0 }}
       >
         {label}
+        {required && <span className={styles.required}> *</span>}
       </motion.p>
 
-      {error && <p style={{ color: 'red', fontSize: 14 }}>{error}</p>}
+      {errorMessage && <p className={styles.error}>{errorMessage}</p>}
     </div>
-    // </div>
   );
 };
+
+Input.displayName = 'Input';
 
 export default Input;

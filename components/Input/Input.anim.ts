@@ -3,7 +3,7 @@ import { Variants } from 'framer-motion';
 const FOCUSED_X_OFFSET = '0px';
 const BLURRED_X_OFFSET = '16px';
 const FOCUSED_Y_OFFSET = '-26px';
-const BLURRED_Y_OFFSET = '14px';
+const BLURRED_Y_OFFSET = '15px';
 
 export const getVariants = (focused: boolean, inputValue: string): Variants => {
   return {
