@@ -1,0 +1,15 @@
+@import '../../styles/theme.scss';
+
+.container {
+  background-color: $darkGray;
+  min-width: 100px;
+  max-width: 500px;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  position: absolute;
+  border-radius: 4px;
+  margin: 20px;
+  box-shadow: 0px 1px 22px 7px black;
+  padding: 20px 30px;
+}

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import Backdrop from '../Backdrop';
-import Button from '../Button';
 import { modalConfig } from './config';
 
 interface ModalProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
