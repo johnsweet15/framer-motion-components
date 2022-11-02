@@ -62,7 +62,6 @@ const Modal = ({ show = true, handleClose, children }: ModalProps) => {
   useEffect(() => {
     window.addEventListener('keydown', (event: KeyboardEvent) => {
       setEvent(event);
-      // console.log(event);
     });
 
     return () => {

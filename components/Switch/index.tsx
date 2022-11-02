@@ -22,7 +22,12 @@ const Switch = ({ style, onToggle }: SwitchProps) => {
       onClick={toggleSwitch}
       style={style}
     >
-      <motion.div className={classes.handle} layout transition={spring} />
+      <motion.input
+        type='checkbox'
+        className={classes.handle}
+        layout
+        transition={spring}
+      />
     </div>
   );
 };
