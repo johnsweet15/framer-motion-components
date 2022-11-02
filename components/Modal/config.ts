@@ -17,7 +17,7 @@ export const modalConfig: DivConfig = {
     width: 'clamp(50%, 700px, 90%)',
     height: 'min(50%, 300px)',
     margin: 'auto',
-    padding: '0 2rem',
+    padding: '3rem',
     borderRadius: '12px',
     display: 'flex',
     flexDirection: 'column',
