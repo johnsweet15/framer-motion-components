@@ -17,18 +17,18 @@ const Modal = ({ show = true, handleClose, children }: ModalProps) => {
 
   const handleKeyEvent = (event: KeyboardEvent) => {
     if (show) {
-      if (event.key === 'Escape') {
+      if (event.code === 'Escape') {
         handleClose();
         if (srcElement) {
           srcElement.focus();
           setSrcElement(null);
         }
       }
-      if (event.key === 'Tab') {
+      if (event.code === 'Tab') {
         handleTabKey(event);
       }
     } else {
-      if (event.key === 'Enter' || event.key === 'Space') {
+      if (event.code === 'Enter' || event.code === 'Space') {
         setSrcElement(event.target as HTMLElement);
       }
     }
